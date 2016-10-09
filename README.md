@@ -1,3 +1,5 @@
-Proyecto para la asignatura de Cloud Computing del Máster Universitario en Ingeniería Informática por la Universidad de Granada (**UGR**).
+Ejercicios de la asignatura Cloud Computing del Máster Universitario en Ingeniería Informática por la Universidad de Granada (**UGR**).
 
-Toda la documentación del mismo puede encontrarse en el [sitio web del proyecto](https://griger.github.io/CC/).
+## Tema 1: Desarrollo basado en pruebas
+
+- [Ejercicio 1.](tema0/ejercicio1.md)
