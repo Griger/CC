@@ -2,4 +2,4 @@ Ejercicios de la asignatura Cloud Computing del Máster Universitario en Ingenie
 
 ## Tema 1: Desarrollo basado en pruebas
 
-- [Ejercicio 1.](tema0/ejercicio1.md)
+- [Ejercicio 1.](tema1/ejercicio1.md)
