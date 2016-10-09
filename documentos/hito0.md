@@ -1,3 +1,6 @@
+---
+layout: index
+---
 Ya se había configurado el nombre y el correo electrónico para git previamente por medio de los siguientes comandos:
 
 ```bash
