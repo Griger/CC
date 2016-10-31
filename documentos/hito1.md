@@ -19,13 +19,14 @@ Además se incluirá una componente de red social en esta aplicación, de modo q
 Esta aplicación se estructurará con un arquitectura basada en microservicios ya que me parece una arquitectura tremendamente flexible y de relativa facilidad de implementación. Además es de la infraestructura de la que tengo mayor información y me parece muy útil y adecuada para este proyecto, porque el modo en el que está pensada la aplicación es muy modular que es, al fin y al cabo, como estamos acostumbrados a pensar a la hora de programar aplicaciones monolíticas.
 
 Los servicios que en principio se incorporarían a esta aplicación serían:
-* Base da datos de tipo documental, **MongoDB**, donde se almacenarán las imágenes y otros tipos de información relacionada con la plataforma. Este tipo de base de datos nos da una gran escalabilidad, alta disponibilidad y un buen rendimiento.
-* A fin de manejar de la mejor forma posible la información relativa al componente de red social de esta aplicación y conocer este tipo de bases de datos se empleará una base de datos basada en grafos, **Neo4j**.
-* Se incorporará un servicio de **log** para obtener información sobre el funcionamiento y uso de la aplicación.
-* El núcleo de la arquitectura estará implementado en Python empleando el framework web **Flask** que es más ligero y en principio parece ofrecer toda la funcionalidad necesaria para llevar a cabo esta aplicación. Aquí se centraría la interfaz de usuario.
-* Servicio de **login de usuario**.
-* Aquellos **módulos necesarios para la gestión de usuarios y red social** que se podrían agrupar en un servicio.
-* Aquellos **módulos necesarios para la creación y gestión de experimentos** que lo podríamos agrupar en otro.
+
+- Base da datos de tipo documental, **MongoDB**, donde se almacenarán las imágenes y otros tipos de información relacionada con la plataforma. Este tipo de base de datos nos da una gran escalabilidad, alta disponibilidad y un buen rendimiento.
+- A fin de manejar de la mejor forma posible la información relativa al componente de red social de esta aplicación y conocer este tipo de bases de datos se empleará una base de datos basada en grafos, **Neo4j**.
+- Se incorporará un servicio de **log** para obtener información sobre el funcionamiento y uso de la aplicación.
+- El núcleo de la arquitectura estará implementado en Python empleando el framework web **Flask** que es más ligero y en principio parece ofrecer toda la funcionalidad necesaria para llevar a cabo esta aplicación. Aquí se centraría la interfaz de usuario.
+- Servicio de **login de usuario**.
+- Aquellos **módulos necesarios para la gestión de usuarios y red social** que se podrían agrupar en un servicio.
+- Aquellos **módulos necesarios para la creación y gestión de experimentos** que lo podríamos agrupar en otro.
 
 A priori no se contempla la inclusión de un sistema de mensajería debido a no estar seguro de la correcta envergadura de este proyecto.
 
