@@ -2,4 +2,6 @@ Proyecto para la asignatura de Cloud Computing del Máster Universitario en Inge
 
 Toda la documentación del mismo puede encontrarse en el [sitio web del proyecto](https://griger.github.io/CC/).
 
-Además en la rama [ejercicios](https://github.com/Griger/CC/tree/ejercicios) de este repositorio podemos encontrar algunos ejercicios adicionales de la asignatura: hasta ejercicio 1 del tema 1.
+Además en el respositorio de [ejercicios](https://github.com/Griger/Ejercicios-CC) de este proyecto podemos encontrar algunos ejercicios adicionales de la asignatura: hasta ejercicio 2 del tema 1.
+
+![licencia](https://img.shields.io/badge/license-GPL%203.0-blue.svg)
