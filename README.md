@@ -1,5 +1,7 @@
 # NameIT
 
+![licencia](https://img.shields.io/badge/license-GPL%203.0-blue.svg)
+
 Proyecto para la asignatura de Cloud Computing del Máster Universitario en Ingeniería Informática por la Universidad de Granada (**UGR**).
 
 Este proyecto pretende ser una plataforma para realizar experimentos realizados con la investigación en Generación de Lenguaje Natural (GLN). Durante el desarrollo de mi TFG he tenido que leer varios papers relacionados con el estudio del lenguaje natural, en particular mi TFG se centraba en la generación de expresiones de referencia para una objeto dentro de una escena, es decir, generar una descripción que identifique unívocamente a un objeto dentro de una escena.
@@ -29,5 +31,3 @@ Los servicios que se incorporarán a esta aplicación serían:
 Una documentación más extensa de este proyecto puede encontrarse en el [sitio web del proyecto](https://griger.github.io/CC/).
 
 Además en el respositorio de [ejercicios](https://github.com/Griger/Ejercicios-CC) de este proyecto podemos encontrar algunos ejercicios adicionales de la asignatura: hasta ejercicio 2 del tema 1.
-
-![licencia](https://img.shields.io/badge/license-GPL%203.0-blue.svg)
