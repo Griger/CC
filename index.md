@@ -30,5 +30,4 @@ A priori no se contempla la inclusión de un sistema de mensajería debido a no 
 
 ![Infraestructura Virtual](images/iv.jpg)
 
-- [Documentación del proyecto.](documentos/documentacion)
 - Documentación de los [objetivos](documentos/objetivos) que se llevarán a cabo como consecuencia del desarrollo del proyecto.
