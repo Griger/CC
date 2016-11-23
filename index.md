@@ -39,3 +39,7 @@ Como sistema de aprovisionamiento emplearemos Ansible ya que tiene una integraci
 El provisionamiento que se ha realizado ha sido: crear un directorio donde almacenar los ficheros principales de la aplicación a desarrollar, y añadir los paquetes python-flask, python-pymongo y mongodb que serán esenciales para el desarrollo y funcionamiento de la misma. Para más detalles sobre el provisionamiento ver [aquí](documentos/provisionamiento).
 
 - Documentación de los [objetivos](documentos/objetivos) que se llevarán a cabo como consecuencia del desarrollo del proyecto.
+
+# Otros provisionamientos
+
+Se ha testeado el provisionamiento realizado por @fblupi en [Ansible](https://github.com/fblupi/GEventator/issues/13) y [Chef](https://github.com/fblupi/GEventator/issues/17) para su proyecto; el testeo se ha realizado con máquinas virtuales orquestadas con Vagrant.
