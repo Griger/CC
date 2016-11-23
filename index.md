@@ -30,4 +30,12 @@ A priori no se contempla la inclusión de un sistema de mensajería debido a no 
 
 ![Infraestructura Virtual](images/iv.jpg)
 
+# Provisionamiento
+
+Se va a desplegar el proyecto en máquinas virtuales de AWS ya que se cuenta con el servicio de prueba gratuito durante un año y además contamos con 100$ de crédito por ser estudiantes de la UGR. Además AWS es un servicio muy usado en el mundo real con lo que familiarizarnos con este entorno tiene muchas ventajas. Por comodidad se ha optado por emplear un sistema de orquestación de máquinas virtuales como Vagrant para gestionar las máquinas virtuales que allí se crean. La máquina virtual que se va a emplear tiene Ubuntu 14.04 instalado, un sistema operativo muy conocido.
+
+Como sistema de aprovisionamiento emplearemos Ansible ya que tiene una integración muy sencilla con Vagrant y además es un sistema muy cómodo de utilizar. Además este sistema sólo necesita que en la máquina remota esté instalado Python2. También se han creado los ficheros necesarios para realizar el provisionamiento con Chef (chef-solo) no obstante debido a problemas para realizar el provisionamiento a las máquinas AWS con chef y Vagrant, las pruebas se han realizado en una máquina virtual local con Ubuntu 16.04; también gestionada con Vagrant.
+
+El provisionamiento que se ha realizado ha sido: crear un directorio donde almacenar los ficheros principales de la aplicación a desarrollar, y añadir los paquetes python-flask, python-pymongo y mongodb que serán esenciales para el desarrollo y funcionamiento de la misma. Para más detalles sobre el provisionamiento ver [aquí](documentos/provisionamiento).
+
 - Documentación de los [objetivos](documentos/objetivos) que se llevarán a cabo como consecuencia del desarrollo del proyecto.
