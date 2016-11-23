@@ -52,4 +52,4 @@ config.vm.provision "chef_solo" do |chef|
 end
 ```
 
-Además hemos de asegurarnos antes de que en la máquina remota esté disponible `chef solo` que lo podemos instalar con el siguiente comando `curl -L https://www.opscode.com/chef/install.sh | bash` desde el directorio home.
+Además hemos de asegurarnos antes de que en la máquina remota esté disponible `chef solo` que lo podemos instalar con el siguiente comando `curl -L https://www.opscode.com/chef/install.sh | bash` desde el directorio home. [Aquí](https://griger.github.io/CC/documentos/provisionamiento) podemos ver unas pruebas de funcionamiento de estos provisionamientos.
