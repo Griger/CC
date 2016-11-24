@@ -36,7 +36,7 @@ Además en el respositorio de [ejercicios](https://github.com/Griger/Ejercicios-
 
 El provisionamiento se ha realizado a través del sistema de orquestación de máquinas virtuales **Vagrant**, con lo cual lo que tendremos que hacer en primer lugar será gestionar la máquina virtual que queramos provisionar mediante este gestor. Esto, si seguimos los tutoriales básicos de Vagrant que hay [en la misma web de la herramienta](https://www.vagrantup.com/docs/getting-started/), nos creará un fichero *Vagrantfile*, en el directorio que elijamos, en el que añadiremos las directivas necesarias para realizar el provisionamiento. Este provisionamiento se puede hacer empleando cualquier tipo de máquina virtual, desde una creada en VirtualBox, que son las que tendremos si realizamos los primeros pasos que se nos muestran en la guía de la web de Vagrant, hasta máquina virtuales en AWS que son las que se han empleado en el provisionamiento con Ansible.
 
-Así para realizar el provisionamiento con Ansible, lo que se aconseja debido a su versatilidad y comodidad, lo que haremos es añadir el [playbook](provision/Ansible/playbook.yml) de ansible en el mismo directorio donde esté el *Vagrantfile* y añadir al *Vagrantfile* la siguiente directiva de provisionamiento:
+Así para realizar el provisionamiento con Ansible, lo que se aconseja debido a su versatilidad y comodidad, lo que haremos es añadir el [playbook](provision/Ansible/playbook.yml) de ansible en el mismo directorio donde esté el *Vagrantfile* y añadir al *Vagrantfile* la siguiente directiva de provisionamiento (se ha de instalar ansible en la máquina local en la que estemos trabajando; en el caso de trabajar con Arch el comando para realizar tal acción sería `pacman -S ansible`):
 
 ```bash
 config.vm.provision :ansible do |ansible|
@@ -44,12 +44,13 @@ config.vm.provision :ansible do |ansible|
 end
 ```
 
-Por otro lado, para realizar el provisionamiento con chef, aunque no se aconseja ya que es más complejo y además aún no ha podido probar en un servidor cloud como AWS, lo que haremos es copiar el directorio [cookbooks](provision/Chef/cookbooks) en el mismo directorio donde se encuentre el *Vagrantfile* y añadir al *Vagrantfile* la siguiente directiva de provisionamiento:
+Por otro lado, para realizar el provisionamiento con chef, aunque no se aconseja ya que es más complejo y además aún no lo he podido probar en un servidor cloud como AWS, lo que haremos es copiar el directorio [cookbooks](provision/Chef/cookbooks) en el mismo directorio donde se encuentre el *Vagrantfile* y añadir al *Vagrantfile* la siguiente directiva de provisionamiento:
 
 ```bash
 config.vm.provision "chef_solo" do |chef|
   chef.add_recipe "provision"
 end
 ```
+También hemos de asegurarnos de cambiar en [la receta chef](provision/Chef/cookbooks/recipes/default.rb) el path para el directorio que se creará con la directiva `directory`, ya que este caso la ruta depende de la máquina en la que estemos trabajando.
 
 Además hemos de asegurarnos antes de que en la máquina remota esté disponible `chef solo` que lo podemos instalar con el siguiente comando `curl -L https://www.opscode.com/chef/install.sh | bash` desde el directorio home. [Aquí](https://griger.github.io/CC/documentos/provisionamiento) podemos ver unas pruebas de funcionamiento de estos provisionamientos.
