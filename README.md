@@ -44,7 +44,7 @@ config.vm.provision :ansible do |ansible|
 end
 ```
 
-Por otro lado, para realizar el provisionamiento con chef, aunque no se aconseja ya que es más complejo y además aún no lo he podido probar en un servidor cloud como AWS, lo que haremos es copiar el directorio [cookbooks](provision/Chef/cookbooks) en el mismo directorio donde se encuentre el *Vagrantfile* y añadir al *Vagrantfile* la siguiente directiva de provisionamiento:
+Por otro lado, para realizar el provisionamiento con chef, aunque no se aconseja ya que puede resultar más complejo, lo que haremos es copiar el directorio [cookbooks](provision/Chef/cookbooks) en el mismo directorio donde se encuentre el *Vagrantfile* y añadir al *Vagrantfile* la siguiente directiva de provisionamiento:
 
 ```bash
 config.vm.provision "chef_solo" do |chef|
@@ -54,3 +54,9 @@ end
 También hemos de asegurarnos de cambiar en [la receta chef](provision/Chef/cookbooks/recipes/default.rb) el path para el directorio que se creará con la directiva `directory`, ya que este caso la ruta depende de la máquina en la que estemos trabajando.
 
 Además hemos de asegurarnos antes de que en la máquina remota esté disponible `chef solo` que lo podemos instalar con el siguiente comando `curl -L https://www.opscode.com/chef/install.sh | bash` desde el directorio home. [Aquí](https://griger.github.io/CC/documentos/provisionamiento) podemos ver unas pruebas de funcionamiento de estos provisionamientos.
+
+Por último hemos de asegurarnos de que podamos sincronizar ficheros que haya en nuestro ordeandor con la instancia AWS, para ello instalaremos el paquete `rsync` en nuestro ordeandor y añadiremos la siguente línea al *Vagrantfile*:
+
+```bash
+config.vm.synced_folder ".", "/vagrant", disabled: true, type: "rsync"
+```
