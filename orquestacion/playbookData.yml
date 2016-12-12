@@ -1,0 +1,21 @@
+---
+  - hosts: all
+    sudo: true
+    tasks:
+      - name: Actualizar cache para distros tipo Debian
+        apt: update_cache=yes
+        when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+      - name: Actualizar cache para distros tipo CentOS
+        yum: update_cache=yes
+        when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+      - name: instalar Flask
+        package:
+          name: python-flask
+          state: present
+
+      - name: instalar Pandas
+        package:
+          name: python-pandas
+          state: present
