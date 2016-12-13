@@ -72,3 +72,5 @@ Veamos el correcto funcionamiento de estos ficheros de orquestación, para lo cu
 
 
 ## Otras orquestaciones
+
+Se ha probado la orquestación de @fblupi la cuál es correcta como se le indica en el [issue](https://github.com/fblupi/GEventator/issues/20) que abrió a tal efecto.
