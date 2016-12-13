@@ -60,3 +60,29 @@ Por último hemos de asegurarnos de que podamos sincronizar ficheros que haya en
 ```bash
 config.vm.synced_folder ".", "/vagrant", disabled: true, type: "rsync"
 ```
+## Orquestación
+
+Para poder configurar automáticamente toda la topología de máquinas virtuales en la que desplegaremos nuestro proyecto necesitaremos instalar en nuestra máquina local tango **vagrant** como **virtualbox** además de disponer de una cuenta en [AWS](https://aws.amazon.com/es/?nc2=h_lg).
+
+Una vez añamos tengamos creada dicha cuenta necesitaremos crear un usuario así como un grupo de seguridad, para lo cual se proporciona un [tutorial](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html) en la misma web de AWS. Con este tutorial craremos un usuario, lo añadiremos a un grupo también creado en el que se le dan los privilegios necesarios para operar sobre las instancias que creemos en AWS y crearemos también una par de claves para poder conectar, a través de conexión SSH, a las instancias desde nuestra máquina.
+
+También crearemos un grupo de seguridad con este tutorial, este grupo es el que le asociaremos a las distintas máquinas que creemos y controlará los permisos de entrada y salida que tienen las máquinas asociadas a él. Para poder conectarnos a nuestras máquinas he creado un grupo al que le he dado los siguientes permisos:
+
+![Permisos del grupo de seguridad](img/permisosGrupo.png)
+
+Luego en el directorio que prefiramos crearemos un archivo que podemos llamar por ejemplo *aws-credentials* con el siguiente contenido:
+
+```bash
+export AWS_KEY='access key ID del usuario creado'
+export AWS_SECRET='secret access key de nuestro usuario creado'
+export AWS_KEYNAME='el nombre del archivo con la clave ssh creada sin extensión'
+export AWS_KEYPATH='path al archivo .pem que hemos bajado con la clave ssh creada'
+```
+Podemos acceder a acces key ID y a la secret acces key siguiendo un [tutorial](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html) de AWS. Una vez tengamos este archivo creado, copiaremos los archivos del [directorio orquestación](https://github.com/Griger/CC/tree/master/orquestacion) de este repositorio en el mismo directorio donde hemos creado el archivo anterior. Entonces en el archivo *Vagrantfile* modificaremos el grupo al que asociamos las dos instancias de AWS que se crean, cambiando el valor del parámetro `aws.security_groups` por el nombre del grupo que hemos creado nosotros (líneas 26 y 53 del *Vagrantfile*) y, desde el directorio donde hemos copiado estos archivos, ejecutaremos las siguientes órdenes de consola:
+
+```bash
+source aws-credentials
+vagrant up
+```
+
+esto creará y provisionará con los playbooks de Ansible correspondientes las tres máquinas que conforman la topología de red definida en el *Vagrantfile* (local, ppal y data).
