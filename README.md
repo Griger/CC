@@ -78,11 +78,11 @@ export AWS_SECRET='secret access key de nuestro usuario creado'
 export AWS_KEYNAME='el nombre del archivo con la clave ssh creada sin extensión'
 export AWS_KEYPATH='path al archivo .pem que hemos bajado con la clave ssh creada'
 ```
-Podemos acceder a acces key ID y a la secret acces key siguiendo un [tutorial](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html) de AWS. Una vez tengamos este archivo creado, copiaremos los archivos del [directorio orquestación](https://github.com/Griger/CC/tree/master/orquestacion) de este repositorio en el mismo directorio donde hemos creado el archivo anterior. Entonces en el archivo *Vagrantfile* modificaremos el grupo al que asociamos las dos instancias de AWS que se crean, cambiando el valor del parámetro `aws.security_groups` por el nombre del grupo que hemos creado nosotros (líneas 26 y 53 del *Vagrantfile*) y, desde el directorio donde hemos copiado estos archivos, ejecutaremos las siguientes órdenes de consola:
+Podemos acceder a acces key ID y a la secret acces key siguiendo un [tutorial](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html) de AWS. Una vez tengamos este archivo creado, copiaremos los archivos del [directorio orquestación](https://github.com/Griger/CC/tree/master/orquestacion) de este repositorio en el mismo directorio donde hemos creado el archivo anterior. Entonces en el archivo *Vagrantfile* modificaremos el grupo al que asociamos las dos instancias de AWS que se crean, cambiando el valor del parámetro `aws.security_groups` por el nombre del grupo que hemos creado nosotros (líneas 26 y 53 del *Vagrantfile*) y también cambiaremos la región dónde se crearán las máquinas por aquella en la que hayamos creado las claves SSH (líneas 24 y 51). Entonces desde el directorio donde hemos copiado estos archivos, ejecutaremos las siguientes órdenes de consola:
 
 ```bash
 source aws-credentials
 vagrant up
 ```
 
-esto creará y provisionará con los playbooks de Ansible correspondientes las tres máquinas que conforman la topología de red definida en el *Vagrantfile* (local, ppal y data).
+esto creará y provisionará con los playbooks de Ansible correspondientes las tres máquinas que conforman la topología de red definida en el *Vagrantfile* (local, ppal y data). Para ver algunos detalles de la topología configurada y capturas de funcionamiento ir [aquí](https://griger.github.io/CC/)
