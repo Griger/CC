@@ -43,3 +43,13 @@ El provisionamiento que se ha realizado ha sido: crear un directorio donde almac
 # Otros provisionamientos
 
 Se ha testeado el provisionamiento realizado por @fblupi en [Ansible](https://github.com/fblupi/GEventator/issues/13) y [Chef](https://github.com/fblupi/GEventator/issues/17) para su proyecto; el testeo se ha realizado con máquinas virtuales orquestadas con Vagrant.
+
+# Orquestación
+
+En esta orquestación se ha optado por configurar una topología compuesta por tres máquinas virtuales: una que se encontrará en nuestra máquina o servidor local y otras dos en la nube, haciendo uso de los servicios de Amazon para tal efecto. Las tres máquinas empleadas contarán con una imagen Ubuntu 14 al ser un sistema operativo muy extendido y que proporciona toda la funcionalidad necesaria para llevar a cabo el despliegue del proyecto que se está desarrollando. Además la versión Python que cuenta es la 2.7 con lo que no da ningún tipo de complicación para provisionar estas máquina empleando Ansible, como sí que las daría una máquina con Ubuntu 16. Además, para las instancias AWS hemos optado por la arquitectura t2.micro ya que es la que está disponible para las versión gratis de prueba.
+
+Hemos elegido Ansible como sistema de provisionamiento por su facilidad de uso y flexibilidad, por ejemplo el comando pip resulta muy útil para instalar módulos python a través de pip en la máquina local sin necesidad de añadir esta instrucción como una orden shell, aumentando la legibilidad del playbook.
+
+Así las tres máquinas desplegadas son las siguientes:
+
+* local: es la máquina que tendremos en nuestra máquina local 
