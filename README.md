@@ -85,4 +85,4 @@ source aws-credentials
 vagrant up
 ```
 
-esto creará y provisionará con los playbooks de Ansible correspondientes las tres máquinas que conforman la topología de red definida en el *Vagrantfile* (local, ppal y data). Para ver algunos detalles de la topología configurada y capturas de funcionamiento ir [aquí](https://griger.github.io/CC/)
+esto creará y provisionará con los playbooks de Ansible correspondientes las tres máquinas que conforman la topología de red definida en el *Vagrantfile* (local, ppal y data). Para ver algunos detalles de la topología configurada y capturas de funcionamiento ir [aquí](https://griger.github.io/CC/).
