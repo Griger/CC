@@ -40,7 +40,7 @@ El provisionamiento que se ha realizado ha sido: crear un directorio donde almac
 
 - Documentación de los [objetivos](documentos/objetivos) que se llevarán a cabo como consecuencia del desarrollo del proyecto.
 
-# Otros provisionamientos
+## Otros provisionamientos
 
 Se ha testeado el provisionamiento realizado por @fblupi en [Ansible](https://github.com/fblupi/GEventator/issues/13) y [Chef](https://github.com/fblupi/GEventator/issues/17) para su proyecto; el testeo se ha realizado con máquinas virtuales orquestadas con Vagrant.
 
@@ -52,4 +52,23 @@ Hemos elegido Ansible como sistema de provisionamiento por su facilidad de uso y
 
 Así las tres máquinas desplegadas son las siguientes:
 
-* local: es la máquina que tendremos en nuestra máquina local 
+* **local**: es la máquina que tendremos en nuestra máquina local en ella almacenaremos la base de datos ya que el almacenamiento en al nube es lo que más encare el servicio. Así en ella provisionaremos: Flask y PyMongo para la comunicación con el resto de máquinas y MongoDB para poder trabajar con la base de datos.
+
+* **ppal**: será la máquina que actue como eje central de nuestra tropología, el núcleo de la estructura REST así en ella provionamos: Flask y PyMongo.
+
+* **data**: dado que nuestro proyecto, como cualquier red social va a contar con datos interesantes en cuanto a localización o frecuencia de uso, hemos optado por habilitar una máquina en la que realizaremos las tareas de minería de datos. Por lo tanto en esta máquina provisionaremos: Flask para las comunicación con la máquina principal y Pandas para realizar la minería. Este módulo se carga en un principio, pero podríamos optar por otra de las muchas herramientas de data mining que existen.
+
+Veamos el correcto funcionamiento de estos ficheros de orquestación, para lo cual no tenemos más que hacer `vagrant up` en el directorio donde tengamos todos los ficheros necesarios. A continuación mostramos capturas del proceso de creación y provisionamientos de las máquinas, así como del efecto producido tanto en VirtualBox como en la consola de EC2 de AWS:
+
+![Provisionamiento local](images/provisionamientoLocal.png)
+
+![Provisionamiento data](images/provisionamientoData.png)
+
+![Provisionamiento ppal](images/provisionamientoPpal.png)
+
+![Creacion en VB](images/creacionVB.png)
+
+![Creacion en AWS](images/creacionAWS.png)
+
+
+## Otras orquestaciones
