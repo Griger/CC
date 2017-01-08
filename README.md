@@ -84,4 +84,18 @@ Podemos acceder a acces key ID y a la secret acces key siguiendo un [tutorial](h
 source aws-credentials
 vagrant up
 ```
-esto creará y provisionará con los playbooks de Ansible correspondientes las tres máquinas que conforman la topología de red definida en el *Vagrantfile* (local, ppal y data). Para ver algunos detalles de la topología configurada y capturas de funcionamiento ir [aquí](https://griger.github.io/CC/) .
+esto creará y provisionará con los playbooks de Ansible correspondientes las tres máquinas que conforman la topología de red definida en el *Vagrantfile* (local, ppal y data). Para ver algunos detalles de la topología configurada y capturas de funcionamiento ir [aquí](https://griger.github.io/CC/).
+
+##Contenedores
+
+Ya hemos visto anteriormente la red de máquinas que queremos definir para desplegar nuestra aplicación, así como el provisionamiento que realizamos sobre cada una de ellas. Lo que hemos hecho ahora es traducir esta arquitectura a 3 imágenes Docker que nos permitirán definir los contenedores Docker necesarios para nuestro despligue, provisionando tales imágenes haciendo uso de los [dockerfiles](https://github.com/Griger/CC/tree/master/dockerfiles) correspondientes. Así tenemos las siguientes imágenes subidas a Docker Hub:
+
+* [Local](https://hub.docker.com/r/griger/maquinalocal/)
+* [Principal](https://hub.docker.com/r/griger/maquinappal/)
+* [Data](https://hub.docker.com/r/griger/maquinadata/)
+
+Podemos descarga cada imagen empleando el comando pull que se expecifica en la propia página de la imagen, no obstante se proporciona un [script](https://github.com/Griger/CC/blob/master/dockerfiles/scriptDescargayCracion.sh) que descargará las 3 imágenes y creará sendos contenedores a partir de ellas.
+
+
+
+
