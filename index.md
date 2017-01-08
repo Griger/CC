@@ -74,3 +74,17 @@ Veamos el correcto funcionamiento de estos ficheros de orquestación, para lo cu
 ## Otras orquestaciones
 
 Se ha probado la orquestación de @fblupi la cuál es correcta como se le indica en el [issue](https://github.com/fblupi/GEventator/issues/20) que abrió a tal efecto.
+
+# Contenedores
+
+Lo que se ha hecho es simplemente traducir la estructura que habíamos definido en el hito de orquestación a 3 contenedores Docker para los que hemos definido sendas imágenes con Dockerfiles a partir de las cuales crearlos. Estas imágenes las hemos subido a Docker Hub de modo que estén disponibles para la comunidad, así tenemos las 3 máquinas siguientes:
+
+* [Local](https://hub.docker.com/r/griger/maquinalocal/)
+* [Principal](https://hub.docker.com/r/griger/maquinappal/)
+* [Data](https://hub.docker.com/r/griger/maquinadata/)
+
+Para más detalles sobre la creación de estas imágenes pinchas [aquí](documentos/contenedores).
+
+## Provando el contenedor de un compañero
+
+He probado la imagen creada por [@acasadoquijada](https://github.com/acasadoquijada) y [funciona correctamente](https://github.com/acasadoquijada/MyStudentBot/issues/20) siguiendo los pasos expuestos por él en el README del repositorio.
