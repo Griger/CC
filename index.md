@@ -83,8 +83,14 @@ Lo que se ha hecho es simplemente traducir la estructura que habíamos definido 
 * [Principal](https://hub.docker.com/r/griger/maquinappal/)
 * [Data](https://hub.docker.com/r/griger/maquinadata/)
 
-Para más detalles sobre la creación de estas imágenes pinchas [aquí](documentos/contenedores).
+Para más detalles sobre la creación de estas imágenes pincha [aquí](documentos/contenedores).
 
 ## Provando el contenedor de un compañero
 
 He probado la imagen creada por [@acasadoquijada](https://github.com/acasadoquijada) y [funciona correctamente](https://github.com/acasadoquijada/MyStudentBot/issues/20) siguiendo los pasos expuestos por él en el README del repositorio.
+
+# Despliegue Final
+
+La idea con la que hemos venido trabajando en los hitos de la asignatura es tener una máquina en la que almacenar la base de datos de tipo MongoDB, otra que actuase como nodo central de la arquitectura ejecutando en ella la aplicación a desarrollar y una tercera en la que realizaríamos el proceso de datamining. Pues bien ahora incluimos dos servicios externos que sustituyen a dos de estas máquinas: almacenaremos la base de datos en **mlab** y la minería de datos la realizaremos a través del servicio de log que nos ofrece **Sematext**.
+
+Por lo tanto se pasa a una estructura en la que sólo se necesita una máquina virtual o contenedor, nosotros hemos optado por emplear un sólo contenedor Docker en el que poder desplegar el proyecto a desarrollar y a su vez para tener una mayor flexibilidad desplegaremos este contenedor en una instancia AWS. Para más detalles sobre este diseño picha [aquí](documentos/despliegue).
