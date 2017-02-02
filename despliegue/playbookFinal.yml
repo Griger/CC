@@ -1,0 +1,40 @@
+---
+  - hosts: all
+    sudo: true
+    tasks:
+      - name: Actualizar cache para distros tipo Debian
+        apt: update_cache=yes
+        when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+      - name: Actualizar cache para distros tipo CentOS
+        yum: update_cache=yes
+        when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+      - name: Instalar paquetes extra de imágenes
+        apt: name=linux-image-extra-4.4.0-53-generic
+        apt: name=linux-image-extra-virtual
+
+      - name: Instalar curl
+        package:
+          name: curl
+          state: present
+
+      - name: Instalar certificados apt https
+        apt: name=apt-transport-https
+        apt: name=ca-certificates
+
+      - name: Agregar clave oficial de docker
+        shell: curl -fsSL https://yum.dockerproject.org/gpg | apt-key add -
+
+      - name: Agregar repositorio estable
+        shell: add-apt-repository "deb https://apt.dockerproject.org/repo/ ubuntu-xenial  main"
+
+      - name: Actualizar cache
+        apt: update_cache=yes
+
+      - name: Instalar docker engine
+        apt: name=docker-engine
+
+      - name: Descargar imagen docker
+        shell: docker pull griger/cc
+        shell: docker run --rm griger/cc ls 

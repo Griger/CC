@@ -1,0 +1,30 @@
+Vagrant.configure("2") do |config|
+
+    config.vm.define "ppal" do |ppal|
+      ppal.vm.box = "dummy"
+      ppal.vm.synced_folder ".", "/vagrant", disabled: true, type: "rsync"
+
+      ppal.vm.provider :aws do |aws, override|
+        aws.access_key_id = ENV['AWS_KEY']
+        aws.secret_access_key = ENV['AWS_SECRET']
+        aws.keypair_name = ENV['AWS_KEYNAME']
+        aws.ami = 'ami-b7a114d7' #instancia de Amazon Free Tier con Ubuntu16.04
+        aws.region = 'us-west-2'
+        aws.instance_type = 't2.micro'
+        aws.security_groups = ["griger_SG_uswest2"]
+
+        aws.tags = {
+    		'Name' => 'Final'
+        }
+
+        override.vm.box = "dummy"
+        override.ssh.username = "ubuntu"
+        override.ssh.private_key_path = ENV['AWS_KEYPATH']
+      end
+
+      ppal.vm.provision "shell", path: "python2.sh"
+      ppal.vm.provision :ansible do |ansible|
+        ansible.playbook = "playbookFinal.yml"
+      end
+    end
+end
