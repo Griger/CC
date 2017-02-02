@@ -97,3 +97,16 @@ Ya hemos visto anteriormente la red de máquinas que queremos definir para despl
 Podemos descarga cada imagen empleando el comando pull que se expecifica en la propia página de la imagen, no obstante se proporciona un [script](https://github.com/Griger/CC/blob/master/dockerfiles/scriptDescargayCracion.sh) que descargará las 3 imágenes y creará sendos contenedores a partir de ellas.
 
 Para más detalles ir [aquí](https://griger.github.io/CC/documentos/contenedores).
+
+##Despliegue Final
+
+Para el despliegue final de esta asignatura hemos hecho uso de las siguientes herramientas:
+
+* **Ansible** como sistema de provisionamiento.
+* **Vagrant** como sistema de orquestación.
+* **AWS** para desplegar máquinas virtuales.
+* **Docker** como sistema de contenedores para empaquetar los paquetes necesarios para ejecutar la aplicación.
+* **mlab** como DaaS.
+* **Sematext** como servicio de log.
+
+Para ver detalles sobre las decisiones tomadas en este diseño ir [aquí](https://griger.github.io/CC/documentos/despliegue).
